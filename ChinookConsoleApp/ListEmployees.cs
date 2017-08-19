@@ -7,10 +7,17 @@ using Dapper;
 namespace ChinookConsoleApp
 {
     public class EmployeeListResult
+<<<<<<< HEAD
     {
         public int Id { get; set; }
         public string FullName { get; set; }
     }
+=======
+        {
+            public int Id { get; set; }
+            public string FullName { get; set; }
+        }
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3
 
     public class ListEmployees
     {

@@ -5,7 +5,11 @@ using System.Data.SqlClient;
 
 namespace ChinookConsoleApp
 {
+<<<<<<< HEAD
     public class UpdateEmployee
+=======
+    class UpdateEmployee
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3
     {
         public void Update()
         {
@@ -50,4 +54,8 @@ namespace ChinookConsoleApp
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3

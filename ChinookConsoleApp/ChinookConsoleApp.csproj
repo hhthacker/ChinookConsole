@@ -47,8 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddEmployee.cs" />
+<<<<<<< HEAD
     <Compile Include="UpdateEmployee.cs" />
     <Compile Include="DeleteEmployee.cs" />
+=======
+    <Compile Include="DeleteEmployee.cs" />
+    <Compile Include="UpdateEmployee.cs" />
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3
     <Compile Include="ListEmployees.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

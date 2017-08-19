@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿
 using System;
+=======
+﻿using System;
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -49,4 +53,8 @@ namespace ChinookConsoleApp
 
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3

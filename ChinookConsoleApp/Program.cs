@@ -31,7 +31,10 @@ namespace ChinookConsoleApp
                 if (selection == "2") new AddEmployee().Add();
                 if (selection == "3") new UpdateEmployee().Update();
                 if (selection == "4") new DeleteEmployee().Delete();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 969c45980436afe10a97c0fe707f5af66f7676b3
                 if (selection == "9") break;
 
             }
