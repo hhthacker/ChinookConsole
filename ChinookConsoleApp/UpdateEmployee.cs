@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ChinookConsoleApp
@@ -8,37 +9,38 @@ namespace ChinookConsoleApp
     {
         public void Update()
         {
-            Console.Clear();
+            var employeeList = new ListEmployees();
+            var updatedEmployee = employeeList.List("Pick an employee to update");
 
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Chinook"].ConnectionString))
             {
-                var employeeListCommand = connection.CreateCommand();
-
-                employeeListCommand.CommandText = "select employeeid as Id, " +
-                                                  "firstname + ' ' + lastname as fullname " +
-                                                  "from Employee";
-
-
-                var employeeUpdateCommand = connection.CreateCommand();
-
-                employeeUpdateCommand.CommandText = "update Employee " +
-                                        "set firstname = @firstname, lastname = @lastname " +
-                                        "where employeeId = @id" +
-                                        "and firstname + ' ' + lastname as fullname = @fullname ";
-
                 try
                 {
                     connection.Open();
-                    var reader = employeeListCommand.ExecuteReader();
+                    var cmd = connection.CreateCommand();
 
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"{reader["Id"]}.) {reader["FullName"]}");
-                    }
+                    cmd.CommandText = "select employeeid as Id, " +
+                                      "firstname, lastname" +
+                                      "from Employee";
 
-                    Console.WriteLine("Select an Employee number.");
+                    var newFirstName = cmd.Parameters.Add("@firstname", SqlDbType.Char);
+                    var newLastName = cmd.Parameters.Add("@lastname", SqlDbType.Char);
+                    var employeeIdParameter = cmd.Parameters.Add("@id", SqlDbType.Int);
+
+                    employeeIdParameter.Value = updatedEmployee;
+                    Console.WriteLine("Enter new first name");
                     Console.Write(">");
-                    var updateSelection = Console.ReadLine();
+                    newFirstName.Value = Console.ReadLine();
+
+                    Console.WriteLine("Enter new last name");
+                    Console.Write(">");
+                    newLastName.Value = Console.ReadLine();
+
+                    cmd.CommandText = "update Employee " +
+                                      "set firstname = @firstname, lastname = @lastname " +
+                                      "where employeeId = @id";
+
+                    var reader = cmd.ExecuteReader();
                 }
                 catch (Exception ex)
                 {
